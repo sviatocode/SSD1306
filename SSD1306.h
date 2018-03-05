@@ -13,17 +13,14 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-// Here you must include HAL I2C headers
-#include "i2c.h"
+#define SSD1306_WIDTH   64
+#define SSD1306_HEIGHT  32
 
-#define SSD1306_WIDTH   128
-#define SSD1306_HEIGHT  64
-
-typedef enum Color_enum {BLACK = 0, WHITE = 1, INV = 2} color_t;
-
-void SSD1306_init(I2C_HandleTypeDef* hi2c);
+void SSD1306_init();
 void SSD1306_clear();
-void SSD1306_update(I2C_HandleTypeDef* hi2c);
-void SSD1306_setPixel(size_t x, size_t y, color_t color);
+void SSD1306_chess();
+void SSD1306_putchar(char c);
+void SSD1306_puts(const char* str);
+void SSD1306_setXY(uint8_t x, uint8_t y);
 
 #endif // __SSD1306__
